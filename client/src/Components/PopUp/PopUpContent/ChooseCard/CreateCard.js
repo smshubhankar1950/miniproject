@@ -4,7 +4,7 @@ import card from "../../../../Assets/VisaBlue.svg"
 import close from "../../../../Assets/times-solid.svg"
 import prev from "../../../../Assets/icons8-left-24.png"
 import check from "../../../../Assets/checkmark.svg"
-
+//Choose Payment card container
 export const CreateCard = (props)=>{
     return (
     <div className="container">

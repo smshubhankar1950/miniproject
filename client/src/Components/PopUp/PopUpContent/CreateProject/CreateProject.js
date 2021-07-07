@@ -2,7 +2,7 @@ import React from 'react'
 import './createProject.css'
 import upload from "../../../../Assets/upload-solid.svg"
 import close from "../../../../Assets/times-solid.svg"
-
+//Create Project card
 export const CreateProject = (props)=>{
     return (
     <div className="container">
