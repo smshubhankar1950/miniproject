@@ -73,3 +73,9 @@
   box-shadow: 0px 5px 5px grey;
   transform: translateX(-50%);
 }
+.curr-date{
+  display: none;
+}
+.customwidth{
+   width:100%
+  }

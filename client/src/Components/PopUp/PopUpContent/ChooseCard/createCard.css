@@ -93,3 +93,6 @@
   clear: both;
   display: table;
 }
+.upload-label-card:focus{
+  border-color: rgb(0, 153, 255);
+}
