@@ -3,6 +3,7 @@ import { Popup } from '../PopUp/Popup';
 import { Modal } from '../Modal/Modal';
 import { CreateProject } from '../PopUp/PopUpContent/CreateProject/CreateProject';
 import { CreateCard } from '../PopUp/PopUpContent/ChooseCard/CreateCard';
+import { postData } from '../../Model/Request';
 const Home= ()=>{
   //Create Project modal State
   const [modalStateProj, setModalP] = useState(false)
@@ -15,14 +16,18 @@ const Home= ()=>{
     }
     const showModalCard=()=>{
       setModalC(!modalStateCard)
-
-  }
-  const switchModalCard=()=>{
-    setModalC(!modalStateCard)
-    setPopUp("Project")
-}
+    }
+    const switchModalCard=()=>{
+      setModalC(!modalStateCard)
+      setPopUp("Project")
+    }
+    const submit =(data)=>{
+      console.log(data)
+      postData(data);
+      popupDisplayed();
+    }
 //Logic for switching between Popup content
-    let popupDisplayed=(event)=>{
+    let popupDisplayed=()=>{
       if(PopUpState==="Project"){
         setPopUp("card")
         showModalProj()
@@ -35,21 +40,21 @@ const Home= ()=>{
       }
     }
     const popUpComp = PopUpState==="Project"?
-    <CreateProject nextDisplay={popupDisplayed} showModal={showModalProj}/>:
+    <CreateProject nextDisplay={submit} showModal={showModalProj}/>:
     <CreateCard showModal={switchModalCard} prevDisplay={popupDisplayed} />
 
     console.log("modalProj:"+modalStateProj+", Card "+modalStateCard+",Popup "+PopUpState)
-  return (
-    <div className="App">
-      <button onClick={showModalProj}>Show PopUp</button>
-      <Modal 
-      modalState={PopUpState==="Project"?modalStateProj:modalStateCard} 
-      showModal={PopUpState==="Project"?showModalProj:showModalCard}
-      />
-      <Popup modalState={PopUpState==="Project"?modalStateProj:modalStateCard}>
-          {popUpComp}
-      </Popup>
-    </div>
+    return (
+        <div className="App">
+          <button onClick={showModalProj}>Show PopUp</button>
+          <Modal 
+          modalState={PopUpState==="Project"?modalStateProj:modalStateCard} 
+          showModal={PopUpState==="Project"?showModalProj:switchModalCard}
+          />
+          <Popup modalState={PopUpState==="Project"?modalStateProj:modalStateCard}>
+              {popUpComp}
+          </Popup>
+        </div>
   );
 }
 

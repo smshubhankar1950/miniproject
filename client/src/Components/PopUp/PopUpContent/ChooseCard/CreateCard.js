@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 //Choose Payment card container
 export const CreateCard = (props)=>{
 
+// 1st cards selection
   const selectedRef = useRef(null);
   useEffect(() => {
       selectedRef.current.focus();
@@ -15,14 +16,22 @@ export const CreateCard = (props)=>{
 
     return (
     <div className="container">
+       <div className="row">
+        <div className="col-1-2-3">
         <div className="back" onClick={props.prevDisplay}>
           <img src={prev} alt="back"/>
         </div>
+        </div>
+        <div className="col-2-2-3">
         <div className="headingCard">
             Choose Card
         </div>
-        <div style={{display:"inline-block"}}>
+        </div>
+        <div className="col-1-2-3">
+        <div>
           <img src={close} className="closeCard" alt="close" onClick={props.showModal}></img>
+        </div>
+        </div>
         </div>
       <hr/>
       <div className="section2">

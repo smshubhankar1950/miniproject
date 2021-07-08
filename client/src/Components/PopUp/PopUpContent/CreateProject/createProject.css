@@ -1,6 +1,6 @@
 .heading{
-  margin: 1em 1.5em 0.5em;
-  width: 60%;
+  margin: 1em 0em 0.5em;
+  width: 100%;
   text-align: right;
   font-weight: 800;
   font-size: large;
@@ -8,6 +8,7 @@
   display: inline-block;
 }
 .close {
+  margin: 1.25em 0em 0.5em;
   height: 1.2em;
   padding-left: 4em;
 }
